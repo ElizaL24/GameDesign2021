@@ -25,11 +25,14 @@ for i in range(1,11):  #beginning of range is included, end isn't
     print(i * base, end= "    ")
 base =4
 print ()
+print ()
 for i in range(1,11):  #beginning of range is included, end isn't
     print(i * base, end= "    ")
 # when we have severa; repetitions we can use veral loops
 # sometimes they can be nested loops (loop inside a loop)
 for var in range (2,11):
+    print ("multiplication table for", end=" ")
+    print (var)
     for i in range (1,11):
         print (i * var, end="   ")
     print ()
