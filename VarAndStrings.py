@@ -29,7 +29,7 @@ print(line1+line2)
 print(line2+line3)
 print(line1+line2+line3)
 
-#the will show you whether something is in the phrase
+#the while show you whether something is in the phrase
 while "There" in phrase:
     print("There" in phrase)
     phrase="done"  #if the phrase isn't changed, the program will print true forever because of the loop
