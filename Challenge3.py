@@ -46,53 +46,80 @@ while word in range (1,4):
         instructions1 ()
         print ()
         print ("There are two challenges in level 1.")
+        print()
         print("--Challenge 1 Words--")
+        print()
         print("Dog    Blanket    Depot    Purple    Dwarf")
+        print()
         answer1=str(input())
         result1=answer1.islower()
         print()
-        print()
         print(result1)
         print ()
-        print ()
         print("--Challenge 2 Words--")
+        print ()
         print("Mercury    Grey    Harry    Iowa    Microsoft")
         answer2=str(input())
         result2=answer2.istitle()
-        print()
         print()
         print(result2)
         print ()
-        print ()
-        print("--Challenge 3 Words--")
-        print("Mercury    Grey    Harry    Iowa    Microsoft")
-        answer2=str(input())
-        result2=answer2.istitle()
     if word in range (2,3):
         print("You are now playing the intermediate level.")
         print("Keep playing and you might be able to play the advanced level.")
         print ()
         instructions2 ()
         print ()
-        print ("There is one challenge in level 2.")
+        print ("There are two challenges in level 2.")
+        print()
+        print("--Challenge 1--")
+        print()
         print("Which clause correctly completes this sentancy:")
         print("'The food was very good,' Annie said,") 
-        A="'In fact, it was great'!"
-        print(A)
+        A="'In fact, it was great!'"
+        print("A: ", A)
         B=A.capitalize()
-        print (B)
-        answer2=str(input())
-        while "a" in answer2:
-            ans2=answer2.upper
-        while "b" in answer2:
-            ans2=answer2.upper
+        print ("B: ", B)
+        answer2=(input())
+        if "a" in answer2:
+            ans2=answer2
+            answer2=ans2.upper()
+        if "b" in answer2:
+            ans2=answer2
+            answer2=ans2.upper()
         if "B" in answer2:
-            print("Not Correct :(")  
+            print("Correct!")  
         if "A" in answer2:
-                print ("Correct!")
+                print ("Not Correct :(")
+        print ()
+        print ()
+        print("--Challenge 2--")
+        print()
+        print()
+        print ("which of these acronyms is capitalized correctly?")
+        A="nasa"
+        print("A: ", A)
+        B=A.swapcase()
+        print ("B: ", B)
+        answer22=(input())
+        if "a" in answer22:
+            ans22=answer22
+            answer22=ans22.upper()
+        if "b" in answer22:
+            ans22=answer22
+            answer22=ans22.upper()
+        if "B" in answer22:
+            print("Correct!")  
+        if "A" in answer22:
+                print ("Not Correct :(")
+        print ()
+        print ()
+
     if word in range (3,4):
         print("You are now playing the advanced level.")
         print ("Good luck--you'll need it!")
+        print ()
+        print ("O U T   O F   O R D E R")  #I didn't have time to complete this level, so it's out of order for now
     print()
     print()
     print("game over")
