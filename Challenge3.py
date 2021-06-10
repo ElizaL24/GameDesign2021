@@ -1,8 +1,8 @@
-#Eliza
-#6/7/2021
+#Eliza Lamster
+#6/8/2021
 print("Welcome to Grammar Police!")
 print("In this game, you will be asked to make a sentance with correct grammar.")
-print(") Please enter one of the menu options.")
+print("Please enter one of the following menu options by typing in the corresponding number.")
 print()
 print()
 print()
@@ -34,11 +34,17 @@ def instructions2 ():
     print("Type in the letter corresponding to the correctly capitalized sentance.")
     print("Once you are ready to submit, press 'enter'.")
 
+def pause():
+    print("press 'enter' to continue")
+    input()
+
+
 menu ()
 
-word=int(input())
+word=int(input()) 
 print ()
 while word in range (1,4):
+
     if word in range (1,2):
         print("You are now playing the easy level.")
         print("We all start somewhere! \(^^)/")
@@ -47,6 +53,7 @@ while word in range (1,4):
         print ()
         print ("There are two challenges in level 1.")
         print()
+        pause()
         print("--Challenge 1 Words--")
         print()
         print("Dog    Blanket    Depot    Purple    Dwarf")
@@ -56,14 +63,16 @@ while word in range (1,4):
         print()
         print(result1)
         print ()
+        pause()
         print("--Challenge 2 Words--")
         print ()
-        print("Mercury    Grey    Harry    Iowa    Microsoft")
-        answer2=str(input())
-        result2=answer2.istitle()
+        print("Pluto    Grey    Harry    Iowa    Microsoft")
+        answer2=str(input()) #input is a function
+        result2=answer2.istitle() #istitle is a method of string. You have to refer it with a dot
         print()
         print(result2)
         print ()
+
     if word in range (2,3):
         print("You are now playing the intermediate level.")
         print("Keep playing and you might be able to play the advanced level.")
@@ -72,6 +81,7 @@ while word in range (1,4):
         print ()
         print ("There are two challenges in level 2.")
         print()
+        pause()
         print("--Challenge 1--")
         print()
         print("Which clause correctly completes this sentancy:")
@@ -92,6 +102,7 @@ while word in range (1,4):
         if "A" in answer2:
                 print ("Not Correct :(")
         print ()
+        pause ()
         print ()
         print("--Challenge 2--")
         print()
@@ -119,7 +130,7 @@ while word in range (1,4):
         print("You are now playing the advanced level.")
         print ("Good luck--you'll need it!")
         print ()
-        print ("O U T   O F   O R D E R")  #I didn't have time to complete this level, so it's out of order for now
+        print ("O U T   O F   O R D E R")  #I wasn't sure what to put in this level, so it's out of order for now.
     print()
     print()
     print("game over")
@@ -131,7 +142,7 @@ while word in range (1,4):
     word=int(input())
 print()
 print()
-print("Thank you for playing My Game!")
+print("Thank you for playing Grammar Police!")
 
 
 
