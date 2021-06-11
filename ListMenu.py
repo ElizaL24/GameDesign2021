@@ -3,12 +3,12 @@
 l1="********************************"
 l2="*       My game                *"
 l3="*                              *"
-l4="*    1 - Capitalize            *"
-l5="*    2 - Uppercase             *"
-l6="*    3 - Lowercase             *"
+l4="*    1 - Add Item              *"
+l5="*    2 - Delete Item           *"
+l6="*    3 - Reverse List Order    *"
 l7="*    4 - Find index of char    *"
-l8="*    5 - Split                 *"
-l9="*    6 - Translate             *"
+l8="*    5 - Clear List            *"
+l9="*    6 - Show List             *"
 l10="*   7 - Exit                  *"
 l11="********************************"
 x=1  #global variable
@@ -46,29 +46,30 @@ def pause():
     else:
         return False
  
+myAnimals=["Dog", "Bear", "Tiger", "Panda", "Shark"]
+
 while x !=4:  
     x=menu()
     if(x==1):        #if statement are selection or branching
         convert=True
         while convert:
-            print("Captialize Chosen")
-            print("Please ener a phrase in lower case")
-            answer=input() #input is a function
-            answer=answer.capitalize() #update your variable to the new change if I dont need orginal value 
-            print(answer)
             convert=pause()
  
         # let the user stay in the level and reuse it many times until they want to get back to main menu
     if(x==2):
         convert=True
         while convert:
-            print("Uppercase Chosen")
-            print("Please ener a phrase in lower case")
-            answer=input() #input is a function
-            answer=answer.upper() #update your variable to the new change if I dont need orginal value 
-            print(answer)
+            convert=3
+            print("Clear List Chosen")
+            print("Here is the current list:")
+            print(myAnimals)
+            print("Which item would you like to remove? Please enter a number between 1 and", len(myAnimals))
+            index=int(input())
+            index=index-1
+            myAnimals.pop(index)
+            print(myAnimals)
             convert=pause()
-            
+
     if(x==3):
         convert=True
         while convert:
@@ -89,6 +90,16 @@ while x !=4:
             character=str(input())
             txt=sentance.index(character)
             print(txt)
+            convert=pause()
+
+    if(x==6):        #if statement are selection or branching
+        convert=True
+        while convert:
+            print("Show List Chosen")
+            print()
+            print("Animals:")
+            for animals in myAnimals:
+                print(animals)
             convert=pause()
  
 print("Goodbye, Thank you for playing")
