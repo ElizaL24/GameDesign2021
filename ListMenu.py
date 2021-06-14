@@ -59,10 +59,10 @@ while x!=6:
             len2=len(myAnimals)
             len2=len2+2
             print("Which spot would you like your item in? Please enter a number between 1 and", len(myAnimals))
-            print("Your animal will be before the animal in the slot of the number you enter.")
-            print("If you would like it to go last, enter Last")
+            print("Your animal will be before the animal in the spot of the number you enter.")
+            print("If you would like your animal to be last, enter 'Last'")
             spot=input()
-            if "Last" in spot:
+            if "ast" in spot:
                 myAnimals.append(animal)
                 print(myAnimals)
             else:
