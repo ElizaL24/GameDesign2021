@@ -1,8 +1,6 @@
 ~~~~~~~~~~~~Scoreboard~~~~~~~~~~~~
 Date            Score        Name
 
-06/15/21          1          Amy
- 
 06/14/21          1          Luke
 
 06/14/21          1          Kirk
@@ -16,3 +14,7 @@ Date            Score        Name
 06/15/21          1          Raymond
 
 06/15/21          3          Rosa
+
+06/15/21          1          Gina
+
+06/15/21          1          Amy
