@@ -37,6 +37,6 @@ else:
     FILE=open(fileName, 'r')
     print(FILE.read())
 FILE=open("ElizaGame.txt", 'a')
-newline="\n whatever"
+newline="\n hello"
 FILE.write(newline)
 FILE.close()

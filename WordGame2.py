@@ -120,16 +120,13 @@ while x !=3:
         convert=True
         while convert:
             print("'Share Scores' selected")
-            FILE = open("WordGameScores.txt", "a")
-            newline="\n Player Scores:"
+            FILE=open("ElizaGame.txt", 'a')
+            newline="\nPlayer Scores"
             FILE.write(newline)
-            FILE.write(name)
-            wins=str(wins)
-            FILE.write(wins)
-            print(FILE.read())
+            FILE.write(newline)
             FILE.close()
-            convert=pause()
-
+            print("Scores shared")
+            convert=False
 print("Goodbye, thank you for playing!")
 
 
