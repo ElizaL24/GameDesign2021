@@ -1,1 +1,4 @@
-~~~~~~~Scores~~~~~~~~
+~~~~~~~~~~~~Scoreboard~~~~~~~~~~~~
+Name          Score           Date
+
+Luke          1          06/14/21

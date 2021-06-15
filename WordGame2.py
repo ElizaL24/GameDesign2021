@@ -3,6 +3,7 @@
 import random
 import os
 import sys
+import datetime
 
 x=1  #global variable
 
@@ -117,15 +118,25 @@ while x !=3:
  
         # let the user stay in the level and reuse it many times until they want to get back to main menu
     if(x==2):
+        wins=str(wins)
+        x=datetime.datetime.now()
         convert=True
         while convert:
             print("'Share Scores' selected")
             FILE=open("ElizaGame.txt", 'a')
-            newline="\nPlayer Scores"
+            newline="\n\n"
             FILE.write(newline)
-            FILE.write(newline)
-            FILE.close()
+            FILE.write(name)
+            FILE.write("          ")
+            FILE.write(wins)
+            FILE.write("          ")
+            FILE.write(x.strftime("%m"))
+            FILE.write("/")
+            FILE.write(x.strftime("%d"))
+            FILE.write("/")
+            FILE.write(x.strftime("%y"))
             print("Scores shared")
+            FILE.close()
             convert=False
 print("Goodbye, thank you for playing!")
 
