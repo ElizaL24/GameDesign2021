@@ -7,7 +7,7 @@ Date            Score        Name
 
 06/14/21          3          Emily
 
-06/15/21          3          Eliza
+06/15/21          3          Lorelai
 
 06/15/21          2          Jake
 
@@ -18,3 +18,5 @@ Date            Score        Name
 06/15/21          1          Gina
 
 06/15/21          1          Amy
+
+06/15/21          2          Madeline
