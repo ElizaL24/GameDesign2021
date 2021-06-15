@@ -2,3 +2,7 @@
 Name          Score           Date
 
 Luke          1          06/14/21
+
+Kirk          1          06/14/21
+
+Emily          3          06/14/21
