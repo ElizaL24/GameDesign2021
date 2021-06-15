@@ -31,17 +31,7 @@ def menu ():
     inputNumber = input()
     x = int(inputNumber)
     return x
-
-def score():
-    print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-    print("~                             ~")
-    print("~            Scores           ~")             
-    print("~        1: Play Game         ~")
-    print("~        2: Show Scores       ~")
-    print("~        3: Exit Game         ~")
-    print("~                             ~")
-    print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-
+    
 def pause():
     print("Do you want to play again?")
     answer1= input()
@@ -136,6 +126,13 @@ while x !=3:
             FILE.write("/")
             FILE.write(x.strftime("%y"))
             print("Scores shared")
+            print()
+            print("Here is the current scoreboard:")
+            print()
+            FILE.close()
+            FILE=open("ElizaGame.txt", 'r')
+            print(FILE.read())
+            print()
             FILE.close()
             convert=False
 print("Goodbye, thank you for playing!")
