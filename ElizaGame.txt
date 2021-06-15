@@ -1,8 +1,18 @@
 ~~~~~~~~~~~~Scoreboard~~~~~~~~~~~~
-Name          Score           Date
+Date            Score        Name
 
-Luke          1          06/14/21
+06/15/21          1          Amy
+ 
+06/14/21          1          Luke
 
-Kirk          1          06/14/21
+06/14/21          1          Kirk
 
-Emily          3          06/14/21
+06/14/21          3          Emily
+
+06/15/21          3          Eliza
+
+06/15/21          2          Jake
+
+06/15/21          1          Raymond
+
+06/15/21          3          Rosa
