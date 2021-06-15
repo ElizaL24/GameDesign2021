@@ -4,6 +4,7 @@ import random
 import os
 import sys
 import datetime
+import time
 
 x=1  #global variable
 
@@ -41,6 +42,9 @@ def pause():
     else:
         return False
 
+os.system('cls')
+
+#start of code
 print("Hello!")   
 name=input("What is your name?")
 name=name.capitalize()
@@ -74,16 +78,20 @@ while x !=3:
                     dashPrint()
 
                 while turns>0 and counter>0:               
-                    newGuess=input("\n\nGive me a letter")
-                    if newGuess not in word:
-                        turns-=1   # short way to write -1 from turns every time
-                        print("Wrong!")
-                        print("You have", turns, "guesses left")  
+                    newGuess=input("\n\nGive me a letter   ")
+                    if newGuess not in guesses:
+                        if newGuess not in word:
+                            turns-=1   # short way to write -1 from turns every time
+                            print("Wrong!")
+                            print("You have", turns, "guesses left")  
 
+                        else:
+                            amt=word.count(newGuess)
+                            counter-=amt
+                            print("Good guess!")
                     else:
-                        amt=word.count(newGuess)
-                        counter-=amt
-                        print("Good guess!")
+                        print("You used this letter already. Try again.")    
+                    
                     guesses += newGuess
                     
                     for char in word:
@@ -114,24 +122,18 @@ while x !=3:
             print("'Share Scores' selected")
             FILE=open("ElizaGame.txt", 'a')
             newline="\n\n"
-            FILE.write(newline)
-            FILE.write(x.strftime("%m"))
-            FILE.write("/")
-            FILE.write(x.strftime("%d"))
-            FILE.write("/")
-            FILE.write(x.strftime("%y"))
-            FILE.write("          ")
-            FILE.write(wins)
-            FILE.write("          ")
-            FILE.write(name)
+            writefile = "\n\n"+x.strftime("%m")+"/"+x.strftime("%d")+"/"+x.strftime("%y")+"          "+wins+"          "+name
+            FILE.write(writefile)
             print("Scores shared")
             print()
             print("Here is the current scoreboard:")
             print()
             FILE.close()
             FILE=open("ElizaGame.txt", 'r')
+            time.sleep(1)
             print(FILE.read())
             print()
+            time.sleep(1)
             FILE.close()
             convert=False
 print("Goodbye, thank you for playing!")

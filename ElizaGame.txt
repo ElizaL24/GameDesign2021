@@ -20,3 +20,7 @@ Date            Score        Name
 06/15/21          1          Amy
 
 06/15/21          2          Madeline
+
+06/15/21          1          Leslie
+
+06/15/21          1          Ron
