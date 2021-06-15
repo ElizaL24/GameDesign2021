@@ -67,7 +67,6 @@ while x !=3:
                 turns=len(word)
                 turns=turns-3
                 print("You have", turns, "tries to guess the word.")
-                print(word)
                 print()
                 guesses=''
                 
@@ -116,15 +115,15 @@ while x !=3:
             FILE=open("ElizaGame.txt", 'a')
             newline="\n\n"
             FILE.write(newline)
-            FILE.write(name)
-            FILE.write("          ")
-            FILE.write(wins)
-            FILE.write("          ")
             FILE.write(x.strftime("%m"))
             FILE.write("/")
             FILE.write(x.strftime("%d"))
             FILE.write("/")
             FILE.write(x.strftime("%y"))
+            FILE.write("          ")
+            FILE.write(wins)
+            FILE.write("          ")
+            FILE.write(name)
             print("Scores shared")
             print()
             print("Here is the current scoreboard:")
