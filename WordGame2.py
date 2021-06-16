@@ -8,12 +8,6 @@ import time
 
 x=1  #global variable
 
-def dashPrint():
-    if char in guesses:
-        print (char,end=' ')
-    else:
-        print ("-", end=' ')
-
 gameWords= ['python','audio','trackpad','computer','keyboard','geeks','laptop','headphones','charger','mouse','software','hardware']
 
 def menu ():
@@ -42,7 +36,36 @@ def pause():
     else:
         return False
 
+def dashPrint():
+    if char in guesses:
+        print (char,end=' ')
+    else:
+        print ("-", end=' ')
+
+def fileW():
+    FILE=open("ElizaGame.txt", 'a')
+    newline="\n\n"
+    writefile = "\n\n"+x.strftime("%m")+"/"+x.strftime("%d")+"/"+x.strftime("%y")+"          "+wins+"          "+name
+    FILE.write(writefile)
+    print("Scores shared")
+    print()
+    FILE.close()
+
+def fileR():
+    FILE=open("ElizaGame.txt", 'r')
+    print()
+    print("Here is the current scoreboard:")
+    time.sleep(1)
+    print(FILE.read())
+    print()
+    time.sleep(1)
+    FILE.close()
+
+
+
 os.system('cls')
+
+
 
 #start of code
 print("Hello!")   
@@ -65,6 +88,8 @@ while x !=3:
             answer=answer.upper()
             while "Y" in answer:
                 print("Okay. Good luck,", name,)
+                time.sleep(1.5)
+                os.system('cls')
                 word=random.choice(gameWords)
                 counter=len(word)
                 print("There are", counter, "letters in the word.")
@@ -120,24 +145,12 @@ while x !=3:
         convert=True
         while convert:
             print("'Share Scores' selected")
-            FILE=open("ElizaGame.txt", 'a')
-            newline="\n\n"
-            writefile = "\n\n"+x.strftime("%m")+"/"+x.strftime("%d")+"/"+x.strftime("%y")+"          "+wins+"          "+name
-            FILE.write(writefile)
-            print("Scores shared")
-            print()
-            print("Here is the current scoreboard:")
-            print()
-            FILE.close()
-            FILE=open("ElizaGame.txt", 'r')
-            time.sleep(1)
-            print(FILE.read())
-            print()
-            time.sleep(1)
-            FILE.close()
+            fileW()
+            fileR()
             convert=False
 print("Goodbye, thank you for playing!")
-
+time.sleep(5)
+os.system('cls')
 
  
         # let the user stay in the level and reuse it many times until they want to get back to main menu
