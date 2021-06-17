@@ -44,8 +44,8 @@ def dashPrint():
 
 def fileW():
     FILE=open("ElizaGame.txt", 'a')
-    newline="\n\n"
-    writefile = "\n\n"+x.strftime("%m")+"/"+x.strftime("%d")+"/"+x.strftime("%y")+"          "+wins+"          "+name
+    newline="\n"
+    writefile =newline+x.strftime("%m")+"/"+x.strftime("%d")+"/"+x.strftime("%y")+"          "+wins+"          "+name
     FILE.write(writefile)
     print("Scores shared")
     print()
@@ -61,6 +61,22 @@ def fileR():
     time.sleep(1)
     FILE.close()
 
+def fileSortR():
+    scoredata="ElizaGame.txt"
+    FILE=open(scoredata, 'r')
+    content_List=FILE.readlines()
+    for element in content_List:
+        global elem_List
+        elem_List=element.split()
+    FILE.close()
+    with open(scoredata, "r") as firstfile:
+        rows=firstfile.readlines()
+        sorted_rows=sorted(rows, key = lambda x: int(x.split()[1]), reverse=True,)
+        leaderboard=[sorted_rows[0:9]]
+        for row in leaderboard:
+            print(row)
+            print()
+    FILE.close()
 
 
 os.system('cls')
@@ -146,7 +162,7 @@ while x !=3:
         while convert:
             print("'Share Scores' selected")
             fileW()
-            fileR()
+            fileSortR()
             convert=False
 print("Goodbye, thank you for playing!")
 time.sleep(5)
