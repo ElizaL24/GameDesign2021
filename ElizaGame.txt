@@ -1,32 +1,27 @@
-~~~~~~~~~~~~Scoreboard~~~~~~~~~~~~
-Date            Score        Name
-
 06/14/21          1          Luke
-
 06/14/21          1          Kirk
-
 06/14/21          3          Emily
-
 06/15/21          3          Lorelai
-
 06/15/21          2          Jake
-
 06/15/21          1          Raymond
-
 06/15/21          3          Rosa
-
 06/15/21          1          Gina
-
 06/15/21          1          Amy
-
 06/15/21          2          Madeline
-
 06/15/21          1          Leslie
-
 06/15/21          1          Ron
-
 06/15/21          1          Ben
-
 06/15/21          2          Chris
-
 06/15/21          1          Anne
+06/16/21          1          April
+06/16/21          1          Andy
+06/16/21          1          Tom
+06/16/21          1          Donna
+06/16/21          1          Sara
+06/16/21          1          Eliza
+06/16/21          1          Susie
+06/16/21          1          Susie
+06/16/21          1          Susie
+06/16/21          1          Susie
+06/16/21          4          Susie
+06/16/21          1          Shy

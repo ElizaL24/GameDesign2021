@@ -22,11 +22,22 @@ print(content_List)
 FILE.close()
 print()
 time.sleep(.5)
+# Driver Code
+
 for element in content_List:
-    print ("Line:", element, end="")
+    global elem_List
     elem_List=element.split()
     print(elem_List)
-    print()
+
+scoredata="asdFre.txt"
+
+with open(scoredata, "r") as firstfile:
+    rows=firstfile.readlines()
+    sorted_rows=sorted(rows, key = lambda x: int(x.split()[3]), reverse=False)
+    print(sorted_rows)
+
+    
+
 
 
 
