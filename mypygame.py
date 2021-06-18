@@ -7,7 +7,7 @@ pygame.init()
 pygame.time.delay(100)
 WIDTH=500
 HEIGHT=600
-bg=pygame.image.load(Desktop/Game Design 10/GameDesign2021/images/Sunsetave.jpg)
+
 #create object to open window
 surface=pygame.display.set_mode((WIDTH,HEIGHT))
 
