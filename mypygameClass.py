@@ -13,6 +13,7 @@ pygame.init()
 pygame.time.delay(100)
 WIDTH=500
 HEIGHT=600
+bg=pygame.image.load("Sunsetst.jpg")
 #create object to open window
 surface=pygame.display.set_mode((WIDTH,HEIGHT))
 
@@ -80,6 +81,7 @@ while check:
     if rect2.y > HEIGHT-hbox-10: rect2.y=HEIGHT-hbox-10
     if rad > 240: rad=240
     screen.fill(lavender)
+    screen.blit(bg(0,0))
     pygame.draw.rect(screen,(pinkSalmon),rect)
     pygame.draw.rect(screen,(lightBlue),rect2)
     pygame.draw.circle(screen,(white), (x+240, y+290), rad, 4)
