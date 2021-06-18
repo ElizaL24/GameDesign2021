@@ -42,6 +42,7 @@ menu () #this is a function call
 word=int(input())
 print ()
 
+x=menu()
 
 while x !=4:  
     x=menu()
