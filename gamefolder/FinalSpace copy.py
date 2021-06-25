@@ -10,7 +10,7 @@ pygame.init()
 clock=pygame.time.Clock()
 #Create my display screen  
 
-WIDTH = 800  # uppercase because it behaves as constant  
+WIDTH = 1300  # uppercase because it behaves as constant  
 HEIGHT = 800   
 screen = pygame.display.set_mode((WIDTH,HEIGHT))  
 pygame.display.set_caption("Spave Evade!")  
@@ -30,6 +30,8 @@ TitleFont= pygame.font.SysFont("comicsans", 70)
 WordFont=pygame.font.SysFont("comicsans", 50)
 LetterFont=pygame.font.SysFont("comicsans",40)
 
+
+
 def movement():
     print("playing")
     screen.fill(BLACK)
@@ -37,21 +39,10 @@ def movement():
     y=385
     rad=30
     hbox,wbox=20,20
-
-    char=pygame.Rect(x, y, hbox,wbox)
-    class Player(pygame.sprite.Sprite):
-            def __init__(self):
-                pygame.sprite.Sprite.__init__(self)
-                self.images = []
-
-                img = pygame.image.load(os.path.join(r"gamefolder\images\UFOspritefinal.jpg")).convert()
-                img.convert_alpha() 
-                img.set_colorkey(ALPHA)
-                self.images.append(img)
-                self.image = self.images[0]
-                self.rect = self.image.get_rect()
     xufo=30
     yufo=385
+    img = pygame.image.load(r"gamefolder\images\UFOspritefinal.jpg")
+
     xyz=True
     while xyz:
         for event in pygame.event.get():
@@ -59,42 +50,47 @@ def movement():
                 xyz=False
 
         screen.fill(BLACK)
-        player = Player()   # spawn player
-        player.rect.x = xufo   # go to x
-        player.rect.y = yufo  # go to y
-        player_list = pygame.sprite.Group()
-        player_list.add(player)
-        screen.blit(screen, (xufo,yufo))
-        player_list.draw(screen) # draw player
+        screen.blit(img, (xufo,yufo))
         pygame.display.flip()
-        clock.tick(40)
-
         speed=4
-
         rockList=["1", "2", "3"]
         rockNumber=random.choice(rockList)
         rockint=random.randint(0,2)
+        global image
         image = pygame.image.load("gamefolder\images\Rock"+str(rockNumber)+".jpg")
-        rockx=random.randint(0, 801)
-        rocky=800
-        screen.blit(image, (rockx,rocky))
-        pygame.time.delay(10)
+        rockx=random.randint(0, 1301)
+        rocky=0
+        def Explosion():
+            if image.screen_rect.collidepoint(xufo, yufo):
+                img = pygame.image.load(r"gamefolder\images\Explosion1.jpg")
         xx=True
         while xx==True:
+            screen.blit(image, (rockx, rocky))
             pygame.time.delay(4)
-            rocky-=4
-            screen.fill(BLACK)
-            screen.blit(image, (rockx,rocky))
-            pygame.display.update()
             KeyBoardKey=pygame.key.get_pressed()
             if KeyBoardKey[pygame.K_RIGHT]:
-                xufo +=speed
-                pygame.display.flip()
-
-            if rocky<0:
+                xufo +=4
+                if xufo>1300:
+                    endGame()
+                    xx=False
+                rocky+=6
+                screen.fill(BLACK)
+                screen.blit(img, (xufo,yufo))
+                screen.blit(image, (rockx,rocky))
+                pygame.display.update()
+                break
+            else:
+                rocky-=6
+                screen.fill(BLACK)
+                screen.blit(image, (rockx,rocky))
+                pygame.display.update()
+                break
+            if rocky>1301:
                 xx=False
+
         pygame.display.update()
         clock.tick(40)
+
 
    
 
@@ -126,6 +122,8 @@ def display_instructions(message1, height1, message2, height2, message3, height3
 def instructions():
     display_instructions("Instructions:", 50, "Press the right arrow to move the spaceship", 220, "To win, make it to the right edge of the map", 320, "If you get hit by an asteroid, you lose", 420)
 
+def endGame():
+    display_instructions("~Winner~", 50, "You won!", 220, "The alien got to safety", 320, "He was not harmed by any asteroids", 420)
 
 
 def mainMenu(message):
@@ -137,22 +135,22 @@ def mainMenu(message):
         screen.blit(text, (WIDTH/2 - text.get_width()/2, round(HEIGHT/3)))
        
         #rect1
-        rect1=pygame.Rect(50, 350, Wbox*7,Wbox*2)
+        rect1=pygame.Rect(50, 350, Wbox*10,Wbox*2)
         pygame.draw.rect(screen, NAVY, rect1)
         text = LetterFont.render("Play", 1, WHITE)
         screen.blit(text, (55 , 355))
        
         #rect 2
-        rect2=pygame.Rect(295, 350, Wbox*7,Wbox*2)
+        rect2=pygame.Rect(500, 350, Wbox*10,Wbox*2)
         pygame.draw.rect(screen, NAVY, rect2)
         text = LetterFont.render("Instructions", 1, WHITE)
-        screen.blit(text, (300 , 355))
+        screen.blit(text, (505 , 355))
 
         #rect 3
-        rect3=pygame.Rect(540, 350, Wbox*7,Wbox*2)
+        rect3=pygame.Rect(950, 350, Wbox*10,Wbox*2)
         pygame.draw.rect(screen, NAVY, rect3)
         text = LetterFont.render("Exit Game", 1, WHITE)
-        screen.blit(text, ((545, 355)))
+        screen.blit(text, ((955, 355)))
        
         #Check collide Point and rectangle
         for event in pygame.event.get():
