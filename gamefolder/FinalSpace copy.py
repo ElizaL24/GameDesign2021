@@ -13,7 +13,7 @@ clock=pygame.time.Clock()
 WIDTH = 1300  # uppercase because it behaves as constant  
 HEIGHT = 800   
 screen = pygame.display.set_mode((WIDTH,HEIGHT))  
-pygame.display.set_caption("Spave Evade!")  
+pygame.display.set_caption("Space Evade!")  
 
 # Define Colors  
 WHITE = [255,255,255]  
@@ -43,7 +43,6 @@ def movement():
         rockx=random.randint(0, 1301)
         rocky=0
         rocks.append([rockx, rocky, image, False])
-    print("playing")
     screen.fill(BLACK)
     x=10
     y=385
@@ -52,7 +51,6 @@ def movement():
     xufo=30
     yufo=385
     img = pygame.image.load(r"gamefolder\images\UFOspritefinal.jpg")
-
     xyz=True
     while xyz:
         pts+=1
@@ -92,7 +90,6 @@ def movement():
                 display_end("~Game Over~", 50, "You lost", 220, "The alien did not make it to safety", 320, "Instead, it got blasted to pieces by an asteroid", 420)
                 pts-=500
                 xyz=False
-            files("Scores")
         pygame.display.flip()
 
 
@@ -141,7 +138,7 @@ def endGame():
     display_instructions("~Winner~", 50, "You won!", 220, "The alien got to safety", 320, "He was not harmed by any asteroids", 420)
 
 
-scoredata="GameScores.txt"
+scoredata="gamefolder\GameScores.txt"
 
 def fileSortR():
     FILE=open(scoredata, 'r')
@@ -170,8 +167,8 @@ def fileW():
     FileWrite.close
 
 def files(message):
-        test=True
-        while test:
+        test2=True
+        while test2:
             #Print message
             screen.fill(BLACK)
             text = WordFont.render(message, 1, WHITE)
@@ -201,12 +198,12 @@ def files(message):
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     mx,my= pygame.mouse.get_pos()
                     if recta1.collidepoint((mx,my)):
-                        fileSortR()
+                            fileSortR()
                     if recta2.collidepoint((mx,my)):
-                        fileW()
+                            fileW()
                     if recta3.collidepoint((mx,my)):
                         display_message("Exiting Scores Menu")
-                        test=False
+                        test2=False
 
 def mainMenu(message):
     test=True
@@ -233,6 +230,16 @@ def mainMenu(message):
         pygame.draw.rect(screen, NAVY, rect3)
         text = LetterFont.render("Exit Game", 1, WHITE)
         screen.blit(text, ((955, 355)))
+
+        rect4=pygame.Rect(950, 450, Wbox*10,Wbox*2)
+        pygame.draw.rect(screen, NAVY, rect4)
+        text = LetterFont.render("Share Scores", 1, WHITE)
+        screen.blit(text, ((955, 455)))
+
+        rect5=pygame.Rect(50, 450, Wbox*10,Wbox*2)
+        pygame.draw.rect(screen, NAVY, rect5)
+        text = LetterFont.render("Show Scores", 1, WHITE)
+        screen.blit(text, ((55, 455)))
        
         #Check collide Point and rectangle
         for event in pygame.event.get():
@@ -249,7 +256,10 @@ def mainMenu(message):
                     display_message("Goodbye, thank you for playing!")
                     pygame.quit()
                     sys.exit()
-        pygame.display.update()  
+                if rect5.collidepoint((mx,my)):
+                    fileSortR()
+                if rect4.collidepoint((mx,my)):
+                    fileW
 
 while True:
     mainMenu("Please select a menu option")
