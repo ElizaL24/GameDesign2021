@@ -1,0 +1,5 @@
+
+& C:/Users/lamstere24/AppData/Local/Microsoft/WindowsApps/python3.8.exe "c:/Users/lamstere24/OneDrive - Greenhill School/Desktop/Game Design 10/GameDesign2021/gamefolder/FinalSpace copy.py"	SCORED	0	POINTS	Friday�6/25/2021
+Eliza	SCORED	0	POINTS	6/25/2021
+Brooke	SCORED	0	POINTS	6/27/2021
+Lucy	SCORED	0	POINTS	6/27/2021

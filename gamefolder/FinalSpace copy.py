@@ -32,7 +32,7 @@ TitleFont= pygame.font.SysFont("comicsans", 70)
 WordFont=pygame.font.SysFont("comicsans", 50)
 LetterFont=pygame.font.SysFont("comicsans",40)
 
-
+pts=0
 
 def movement():
     pts=0
@@ -67,14 +67,15 @@ def movement():
             xufo +=4
             if xufo>1300:
                 endGame()
-                pts+=500
                 xyz=False
+                pts+=500
+                return pts
         number=random.randint(0,9)
         rocks[number][3] = True
         item=0
         for i in range(10):
             if rocks[i][3]:
-                rocks[i][1]+=3
+                rocks[i][1]+=2
             else:
                 rocks[i][1]+=1
             imgrock=rocks[i][2]
@@ -88,13 +89,12 @@ def movement():
                 pygame.time.delay(500)
                 pygame.display.update()
                 display_end("~Game Over~", 50, "You lost", 220, "The alien did not make it to safety", 320, "Instead, it got blasted to pieces by an asteroid", 420)
-                pts-=500
                 xyz=False
+                pts-=500
+                return pts
         pygame.display.flip()
 
 
- 
-    
 
 def display_message(message):
     pygame.time.delay(500)
@@ -137,10 +137,10 @@ def instructions():
 def endGame():
     display_instructions("~Winner~", 50, "You won!", 220, "The alien got to safety", 320, "He was not harmed by any asteroids", 420)
 
-
 scoredata="gamefolder\GameScores.txt"
 
 def fileSortR():
+    print("reading files")
     FILE=open(scoredata, 'r')
     content_List=FILE.readlines()
     for element in content_List:
@@ -149,7 +149,7 @@ def fileSortR():
     FILE.close()
     with open(scoredata, "r") as firstfile:
         rows=firstfile.readlines()
-        sorted_rows=sorted(rows, key = lambda x: int(x.split()[1]), reverse=True,)
+        sorted_rows=sorted(rows, key = lambda x: int(x.split()[4]), reverse=True,)
         print
         for row in sorted_rows:
             if content_List[1]>3:
@@ -158,56 +158,18 @@ def fileSortR():
     FILE.close()
 
 def fileW():
+    print("writing files")
     print("What name would you like to use?")
     name=input()
     FileWrite=open(scoredata,'a')
     x=datetime.datetime.now()
-    line=name+"\t"+"SCORED"+"\t"+str(pts)+"\t"+"POINTS"+"\t"+str(x.strftime("%A"))+" "+str(x.month)+"/"+str(x.day)+"/"+str(x.year)
+    line=name+"\t"+"SCORED"+"\t"+str(pts)+"\t"+"POINTS"+"\t"+str(x.month)+"/"+str(x.day)+"/"+str(x.year)
     FileWrite.write("\n"+line)
     FileWrite.close
 
-def files(message):
-        test2=True
-        while test2:
-            #Print message
-            screen.fill(BLACK)
-            text = WordFont.render(message, 1, WHITE)
-            screen.blit(text, (WIDTH/2 - text.get_width()/2, round(HEIGHT/3)))
-        
-            #rect1
-            recta1=pygame.Rect(50, 350, Wbox*10,Wbox*2)
-            pygame.draw.rect(screen, NAVY, recta1)
-            text = LetterFont.render("Show Scores", 1, WHITE)
-            screen.blit(text, (55 , 355))
-        
-            recta2=pygame.Rect(500, 350, Wbox*10,Wbox*2)
-            pygame.draw.rect(screen, NAVY, recta2)
-            text = LetterFont.render("Instructions", 1, WHITE)
-            screen.blit(text, (505 , 355))
-
-            #rect 2
-            recta3=pygame.Rect(950, 350, Wbox*10,Wbox*2)
-            pygame.draw.rect(screen, NAVY, recta3)
-            text = LetterFont.render("Share Scores", 1, WHITE)
-            screen.blit(text, ((955, 355)))
-
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    pygame.quit()
-                    sys.exit() 
-                if event.type == pygame.MOUSEBUTTONDOWN:
-                    mx,my= pygame.mouse.get_pos()
-                    if recta1.collidepoint((mx,my)):
-                            fileSortR()
-                    if recta2.collidepoint((mx,my)):
-                            fileW()
-                    if recta3.collidepoint((mx,my)):
-                        display_message("Exiting Scores Menu")
-                        test2=False
-
 def mainMenu(message):
-    test=True
-    while test:
+    testing=True
+    while testing:
         #Print message
         screen.fill(BLACK)
         text = WordFont.render(message, 1, WHITE)
@@ -240,7 +202,7 @@ def mainMenu(message):
         pygame.draw.rect(screen, NAVY, rect5)
         text = LetterFont.render("Show Scores", 1, WHITE)
         screen.blit(text, ((55, 455)))
-       
+        pygame.display.update()
         #Check collide Point and rectangle
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -259,9 +221,10 @@ def mainMenu(message):
                 if rect5.collidepoint((mx,my)):
                     fileSortR()
                 if rect4.collidepoint((mx,my)):
-                    fileW
+                    fileW()
 
-while True:
+a=True
+while a==True:
     mainMenu("Please select a menu option")
 
 
